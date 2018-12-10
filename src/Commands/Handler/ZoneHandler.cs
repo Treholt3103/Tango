@@ -15,6 +15,7 @@ namespace CSM.Commands.Handler
         {
             var id = Extensions.ZoneExtension.ZoneVectorDictionary[command.Position];
 
+            UnityEngine.Debug.Log($"Zoneid changed is {id}");
             Singleton<ZoneManager>.instance.m_blocks.m_buffer[id].m_zone1 = command.Zone1;
             Singleton<ZoneManager>.instance.m_blocks.m_buffer[id].m_zone2 = command.Zone2;
 

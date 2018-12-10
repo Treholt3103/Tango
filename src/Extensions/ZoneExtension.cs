@@ -94,7 +94,7 @@ namespace CSM.Extensions
                         {
                             if (_ZoneBlock[i].m_zone1 != _LastZoneBlock[i].m_zone1 | _ZoneBlock[i].m_zone2 != _LastZoneBlock[i].m_zone2)   //this runs through all Zoneblocks and detect if the zonetype has changed
                             {
-                                UnityEngine.Debug.Log("zone changed");
+                                UnityEngine.Debug.Log($"zone {i}  changed");
                                 Command.SendToAll(new ZoneCommand
                                 {
                                     Position = _ZoneBlock[i].m_position,

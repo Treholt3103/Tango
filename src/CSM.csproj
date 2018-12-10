@@ -87,6 +87,7 @@
     <Compile Include="Commands\Data\SpeedCommand.cs" />
     <Compile Include="Commands\Data\TaxRateChangeCommand.cs" />
     <Compile Include="Commands\Data\NodeUpdateCommand.cs" />
+    <Compile Include="Commands\Data\TerrainChangeCommand.cs" />
     <Compile Include="Commands\Data\WorldInfoCommand.cs" />
     <Compile Include="Commands\Data\ZoneCommand.cs" />
     <Compile Include="Commands\Handler\BudgetChangeHandler.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Commands\Handler\SpeedHandler.cs" />
     <Compile Include="Commands\Handler\TaxRateChangeHandler.cs" />
     <Compile Include="Commands\Handler\NodeUpdateHandler.cs" />
+    <Compile Include="Commands\Handler\TerrainChangeHandler.cs" />
     <Compile Include="Commands\Handler\WorldInfoHandler.cs" />
     <Compile Include="Commands\Handler\ZoneHandler.cs" />
     <Compile Include="Commands\CommandIds.cs" />
@@ -123,6 +125,7 @@
     <Compile Include="Helpers\Array16Extension.cs" />
     <Compile Include="Helpers\ArrayHelpers.cs" />
     <Compile Include="Injections\NodeHandler.cs" />
+    <Compile Include="Injections\TerrainHandler.cs" />
     <Compile Include="Models\StartEndNode.cs" />
     <Compile Include="Helpers\UiHelpers.cs" />
     <Compile Include="Extensions\LoadingExtension.cs" />
