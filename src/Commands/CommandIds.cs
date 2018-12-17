@@ -36,6 +36,7 @@
         public const byte SegmentReleaseCommand = 113;
         public const byte ZoneCommand = 114;
         public const byte UnlockAreaCommand = 115;
+        public const byte BuildingUpgradeCommand = 116;
 
         // 116 - 255
     }
