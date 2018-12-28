@@ -87,6 +87,10 @@
     <Compile Include="Commands\Data\SpeedCommand.cs" />
     <Compile Include="Commands\Data\TaxRateChangeCommand.cs" />
     <Compile Include="Commands\Data\NodeUpdateCommand.cs" />
+    <Compile Include="Commands\Data\TransportCreateLineCommand.cs" />
+    <Compile Include="Commands\Data\TransportLineMoveStopCommand.cs" />
+    <Compile Include="Commands\Data\TransportLineRemoveStopCommand.cs" />
+    <Compile Include="Commands\Data\TransportReleaseLineCommand.cs" />
     <Compile Include="Commands\Data\UnlockAreaCommand.cs" />
     <Compile Include="Commands\Data\WorldInfoCommand.cs" />
     <Compile Include="Commands\Data\ZoneCommand.cs" />
@@ -94,6 +98,7 @@
     <Compile Include="Commands\Handler\BuildingRelocateHandler.cs" />
     <Compile Include="Commands\Handler\BuildingRemoveHandler.cs" />
     <Compile Include="Commands\Handler\ChatMessageHandler.cs" />
+    <Compile Include="Commands\Handler\TransportCreateLineHandler.cs" />
     <Compile Include="Commands\Handler\MoneyHandler.cs" />
     <Compile Include="Commands\Handler\NodeCreateHandler.cs" />
     <Compile Include="Commands\Handler\NodeReleaseHandler.cs" />
@@ -111,6 +116,11 @@
     <Compile Include="Commands\Handler\SpeedHandler.cs" />
     <Compile Include="Commands\Handler\TaxRateChangeHandler.cs" />
     <Compile Include="Commands\Handler\NodeUpdateHandler.cs" />
+    <Compile Include="Commands\Data\TransportLineAddStopCommand.cs" />
+    <Compile Include="Commands\Handler\TransportLineAddStopHandler .cs" />
+    <Compile Include="Commands\Handler\TransportLineMoveStopHandler.cs" />
+    <Compile Include="Commands\Handler\TransportLineRemoveStopHandler.cs" />
+    <Compile Include="Commands\Handler\TransportReleaseLineHandler.cs" />
     <Compile Include="Commands\Handler\UnlockAreaHandler.cs" />
     <Compile Include="Commands\Handler\WorldInfoHandler.cs" />
     <Compile Include="Commands\Handler\ZoneHandler.cs" />
@@ -125,6 +135,7 @@
     <Compile Include="Helpers\Array16Extension.cs" />
     <Compile Include="Helpers\ArrayHelpers.cs" />
     <Compile Include="Injections\NodeHandler.cs" />
+    <Compile Include="Injections\TransportHandler.cs" />
     <Compile Include="Models\StartEndNode.cs" />
     <Compile Include="Helpers\UiHelpers.cs" />
     <Compile Include="Extensions\LoadingExtension.cs" />

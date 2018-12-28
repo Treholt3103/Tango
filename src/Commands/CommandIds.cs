@@ -36,6 +36,11 @@
         public const byte SegmentReleaseCommand = 113;
         public const byte ZoneCommand = 114;
         public const byte UnlockAreaCommand = 115;
+        public const byte TransportCreateLineCommand = 116;
+        public const byte TransportReleaseLineCommand = 117;
+        public const byte TransportLineAddStopCommand = 118;
+        public const byte TransportLineRemoveStopCommand = 119;
+        public const byte TransportLineMoveStopCommand = 120;
 
         // 116 - 255
     }

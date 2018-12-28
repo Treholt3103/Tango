@@ -12,6 +12,7 @@ namespace CSM.Extensions
     {
         public override int OnCalculateCommercialDemand(int originalDemand)
         {
+
             switch (MultiplayerManager.Instance.CurrentRole)
             {
                 case MultiplayerRole.Client:

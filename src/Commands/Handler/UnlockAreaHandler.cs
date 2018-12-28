@@ -18,5 +18,6 @@ namespace CSM.Commands.Handler
             var area = (command.Z * 5) + command.X; //calculate the index
             GameAreaManager.instance.UnlockArea(area);
         }
+        
     }
 }
