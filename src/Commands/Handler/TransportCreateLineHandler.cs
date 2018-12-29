@@ -18,8 +18,8 @@ namespace CSM.Commands.Handler
         private void Handle(TransportCreateLineCommand command)
         {
             UnityEngine.Debug.Log("new line recived");
-            
 
+            ushort[] _lineNumber = (ushort[])typeof(TransportManager).GetField("m_lineNumber", AccessTools.all).GetValue(TransportManager.instance);          
 
             TransportInfo info = PrefabCollection<TransportInfo>.GetPrefab(command.infoIndex);
             ushort lineID = command.lineID;
@@ -36,7 +36,7 @@ namespace CSM.Commands.Handler
             TransportManager.instance.m_lines.m_buffer[lineID].m_passengers = new TransportPassengerData();
             if (command.newNumber)
             {
-                TransportManager.instance.m_lines.m_buffer[lineID].m_lineNumber = this.m_lineNumber[(int)info.m_transportType] = (ushort)(this.m_lineNumber[(int)info.m_transportType] + 1);
+                TransportManager.instance.m_lines.m_buffer[lineID].m_lineNumber = _lineNumber[(int)info.m_transportType] = (ushort)(_lineNumber[(int)info.m_transportType] + 1);
             }
             else
             {

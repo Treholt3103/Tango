@@ -15,8 +15,9 @@ namespace CSM.Commands.Handler
 
         private void Handle(TransportLineAddStopCommand command)
         {
-
+            TransportHandler.IgnoreAddStops.Add(command.LineID);
             TransportManager.instance.m_lines.m_buffer[command.LineID].AddStop(command.LineID, command.index, command.Position, command.fixedPlatform);
+            TransportHandler.IgnoreAddStops.Remove(command.LineID);
 
         }
 

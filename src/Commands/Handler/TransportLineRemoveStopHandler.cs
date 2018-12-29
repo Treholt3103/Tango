@@ -14,7 +14,9 @@ namespace CSM.Commands.Handler
 
         private void Handle(TransportLineRemoveStopCommand command)
         {
+            TransportHandler.IgnoreRemoveStops.Add(command.LineID);
             TransportManager.instance.m_lines.m_buffer[command.LineID].RemoveStop(command.LineID, command.Index);
+            TransportHandler.IgnoreRemoveStops.Remove(command.LineID);
         }
     }
 }

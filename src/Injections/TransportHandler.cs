@@ -11,7 +11,10 @@ namespace CSM.Injections
     public class TransportHandler
     {
         public static List<ushort> IgnoreLines { get; } = new List<ushort>();
-        public static List<ushort> IgnoreStops { get; } = new List<ushort>();
+        public static List<ushort> IgnoreAddStops { get; } = new List<ushort>();
+        public static List<ushort> IgnoreRemoveStops { get; } = new List<ushort>();
+        public static List<ushort> IgnoreMoveStops { get; } = new List<ushort>();
+
     }
 
     [HarmonyPatch(typeof(TransportManager))]
@@ -55,9 +58,11 @@ namespace CSM.Injections
     public class AddStod
     {
         public static void Postfix(bool __result, ushort lineID, int index, Vector3 position, bool fixedPlatform)
-        {
-            if (__result)
+        {           
+            if (!TransportHandler.IgnoreAddStops.Contains(lineID) && !TransportManager.instance.m_lines.m_buffer[lineID].m_flags.IsFlagSet(TransportLine.Flags.Temporary)) //__result && 
             {
+                UnityEngine.Debug.Log("stop was added");
+                UnityEngine.Debug.Log($"stop has flags {TransportManager.instance.m_lines.m_buffer[lineID].m_flags}");
                 Command.SendToAll(new TransportLineAddStopCommand
                 {
                     fixedPlatform = fixedPlatform,
@@ -67,7 +72,6 @@ namespace CSM.Injections
                 });
             }
 
-            UnityEngine.Debug.Log("stop was added");
         }
     }
 
@@ -76,7 +80,7 @@ namespace CSM.Injections
     {
         public static void Postfix(ushort lineID, int index, bool __result)
         {
-            if (__result)
+            if (!TransportHandler.IgnoreRemoveStops.Contains(lineID) && !TransportManager.instance.m_lines.m_buffer[lineID].m_flags.IsFlagSet(TransportLine.Flags.Temporary)) //__result && 
             {
                 UnityEngine.Debug.Log("stop was removed");
                 Command.SendToAll(new TransportLineRemoveStopCommand
@@ -98,8 +102,8 @@ namespace CSM.Injections
     {
         public static void Postfix(ushort lineID, int index, Vector3 newPos, bool fixedPlatform, bool __result)
         {
-            UnityEngine.Debug.Log("stop was moved");
-            if (__result)
+            UnityEngine.Debug.Log($"stop has fixed platform {fixedPlatform}");
+            if (__result && !TransportHandler.IgnoreMoveStops.Contains(lineID) && !TransportManager.instance.m_lines.m_buffer[lineID].m_flags.IsFlagSet(TransportLine.Flags.Temporary))
             {
                 Command.SendToAll(new TransportLineMoveStopCommand
                 {
